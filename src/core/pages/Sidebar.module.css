@@ -1,0 +1,25 @@
+.sidebarContainer {
+    width: 40.1rem;
+    max-width: 40.1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2.4rem;
+    background-color: var(--color-bg-stripe);
+
+}
+.sidebarTitle {
+    margin-bottom: 4rem;
+}
+.subTitle{
+    margin-bottom: 1.6rem;
+}
+.input {
+    margin-bottom: 1.4rem;
+}
+.button{
+    margin-right: 1.2rem;
+    flex-grow: 1;
+}
+.subTitleMargin {
+    margin-top: 3rem;
+}
