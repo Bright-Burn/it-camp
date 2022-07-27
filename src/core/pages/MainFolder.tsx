@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Text} from '@consta/uikit/Text'
 import css from './MainFolder.module.css'
 import Highcharts from 'highcharts/highstock'
+import highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official'
 import {ResultTable} from './ResultTable';
 import {dataType, getSeries} from '../utils/utils';
@@ -9,15 +10,11 @@ import {dataType, getSeries} from '../utils/utils';
 interface Props {
   data: dataType
 }
-
 export const MainFolder: React.FC<Props> = ({data}) => {
-  const [opt, setOpt] = useState({
+  const [nodal, setNodal] = useState<operationMode[]>([])
+  const [opt, setOpt] = useState<highcharts.Options>({
     tooltip: {
-      crosshairs: true,
-      // shared: true,
-      // @ts-ignore
       formatter: function() {
-        // @ts-ignore
         return 'Qж, м3/сут = ' + this.x + ' </br> ' + ' Pзаб, атм = ' + this.y + ' </br> '+ this.series.name;
       }
     },
@@ -27,37 +24,46 @@ export const MainFolder: React.FC<Props> = ({data}) => {
       }
     },
     xAxis: {
+      crosshair: true,
       title: {
         text: 'Qж, м3/сут'
       }
     },
     chart: {
-      height: 600,
+      height: 700,
     },
     title: {
       text: 'My chart'
     },
     series: [{
       name: 'VLP',
+      type: "line",
       data: []
     },
-      {
-        name: 'IPR',
-        data: [],
-      }
-      ,
-      {
-        name: 'Режим работы скважины',
-        data: []
-      }]
+    {
+      name: 'IPR',
+      type: "line",
+      data: [],
+    },
+    {
+      name: 'Режим работы скважины',
+      type: "line",
+      data: []
+    }]
   })
   useEffect(() => {
     const series = getSeries(data)
-    // @ts-ignore
+
+
     setOpt(prev => ({
       ...prev,
       series: series
     }))
+    setNodal(data.nodal.map((n, i) => ({
+      mode: i+1,
+      pressure: n.p_wf,
+      production: n.q_liq
+    })))
 
   }, [data])
 
@@ -70,12 +76,9 @@ export const MainFolder: React.FC<Props> = ({data}) => {
         options={opt}
       />
       </div>
-      <ResultTable rows={[{
-        mode: 1,
-        pressure: 10,
-        production: 9999
-      }]}/>
+      <ResultTable rows={nodal}/>
     </div>
   );
 };
 
+type operationMode = {mode: number, production: number, pressure: number}

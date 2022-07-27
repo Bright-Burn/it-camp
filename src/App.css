@@ -6,6 +6,7 @@ html {
   flex-direction: column;
   height: 100vh;
   background-color: var(--color-bg-secondary);
+  overflow: hidden;
 }
 .bg{
   background-color: var(--color-bg-secondary);
