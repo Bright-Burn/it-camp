@@ -47,10 +47,11 @@ export const Sidebar: React.FC<Props> = ({setCalculatedData}) => {
             Инклинометрия скважины в формате MD, TVD
           </Text>
           <TextField label="MD1" type="text"
-                     placeholder="Введите глубину м"
+                     placeholder="Введите глубину, м"
                      size={'s'}
                      className={css.input}
                      value={md}
+                     defaultValue={"1, 1000"}
                      onChange={({value}) => {
                        value && setMD(value)
                        onInputChange('MD', value)
@@ -59,7 +60,7 @@ export const Sidebar: React.FC<Props> = ({setCalculatedData}) => {
           />
           <TextField label="TVD"
                      type="text"
-                     placeholder="Введите глубину м"
+                     placeholder="Введите глубину, м"
                      size={'s'}
                      className={css.input}
                       value={tvd}
@@ -72,9 +73,9 @@ export const Sidebar: React.FC<Props> = ({setCalculatedData}) => {
           <Text weight={'regular'} className={`${css.subTitle} ${css.subTitleMargin}`}>
             Данные по Эксплуатационной Колонне
           </Text>
-          <TextField label="Диаметр ЭК"
+          <TextField label="Диаметр ЭК, м"
                      type="text"
-                     placeholder="Введите диаметр м"
+                     placeholder="Введите диаметр, м"
                      size={'s'}
                      className={css.input}
                      value={data?.casingD}
@@ -84,17 +85,17 @@ export const Sidebar: React.FC<Props> = ({setCalculatedData}) => {
           <Text weight={'regular'} className={`${css.subTitle}  ${css.subTitleMargin}`}>
             Данные по Колонне Насосно-Компрессорных Труб
           </Text>
-          <TextField label="Диаметр НКТ"
+          <TextField label="Диаметр НКТ, м"
                      type="text"
-                     placeholder="Введите диаметр м"
+                     placeholder="Введите диаметр, м"
                      size={'s'}
                      className={css.input}
                      value={data.tubingD}
                      onChange={({value}) => onInputChange('tubingD', value) }
           />
-          <TextField label="Глубина спуска НКТ"
+          <TextField label="Глубина спуска НКТ, м"
                      type="text"
-                     placeholder="Введите глубину м"
+                     placeholder="Введите глубину, м"
                      size={'s'}
                      className={css.input}
                      value={data.h_mes}
@@ -104,87 +105,87 @@ export const Sidebar: React.FC<Props> = ({setCalculatedData}) => {
           <Text weight={'regular'} className={`${css.subTitle} ${css.subTitleMargin}`}>
             Данные по флюидам
           </Text>
-          <TextField label="Обводненность"
+          <TextField label="Обводненность, %"
                      type="text"
-                     placeholder="Введите обводненность %"
+                     placeholder="Введите обводненность, %"
                      size={'s'}
                      className={css.input}
                      value={data.wct}
                      onChange={({value}) => onInputChange('wct', value) }
           />
-          <TextField label="Газовый фактор"
+          <TextField label="Газовый фактор, м3/т"
                      type="text"
-                     placeholder="Введите фактор м3/т"
+                     placeholder="Введите ГФ, м3/т"
                      size={'s'}
                      value={data.rp}
                      onChange={({value}) => onInputChange('rp', value) }
                      className={css.input}/>
-          <TextField label="Относительная плотность нефти"
+          <TextField label="Относительная плотность нефти по воде"
                      type="text"
-                     placeholder="Введите плотность кг/м3"
+                     placeholder="Введите плотность"
                      size={'s'}
                      value={data.gamma_oil}
                      onChange={({value}) => onInputChange('gamma_oil', value) }
                      className={css.input}/>
-          <TextField label="Относительная плотность газа"
-                     type="text" placeholder="Введите плотность кг/м3"
+          <TextField label="Относительная плотность газа по воздуху"
+                     type="text" placeholder="Введите плотность"
                      size={'s'}
                      value={data.gamma_gas}
                      onChange={({value}) => onInputChange('gamma_gas', value) }
                      className={css.input}/>
-          <TextField label="Относительная плотность воды"
+          <TextField label="Относительная плотность воды по воде"
                      type="text"
-                     placeholder="Введите плотность кг/м3"
+                     placeholder="Введите плотность"
                      size={'s'}
                      value={data.gamma_wat}
                      onChange={({value}) => onInputChange('gamma_wat', value) }
                      className={css.input}/>
-          <TextField label="Температура пласта"
+          <TextField label="Температура пласта, С"
                      type="text"
-                     placeholder="Введите температуру С"
+                     placeholder="Введите температуру, С"
                      size={'s'}
                      value={data.t_res}
                      onChange={({value}) => onInputChange('t_res', value) }
                      className={css.input}/>
-          <TextField label="Давление насыщения"
+          <TextField label="Давление насыщения, атм"
                      type="text"
-                     placeholder="Введите давление атм"
+                     placeholder="Введите давление, атм"
                      size={'s'}
                      value={data.pb}
                      onChange={({value}) => onInputChange('pb', value) }
                      className={css.input}/>
 
-          <TextField label="Буферное давление"
+          <TextField label="Буферное давление, атм"
                      type="text"
-                     placeholder="Введите давление атм"
+                     placeholder="Введите давление, атм"
                      size={'s'}
                      value={data.p_wh}
                      onChange={({value}) => onInputChange('p_wh', value) }
                      className={`${css.input} ${css.subTitleMargin}`}/>
-          <TextField label="Геотермический градиент"
+          <TextField label="Геотермический градиент, C/100 м"
                      type="text"
-                     placeholder="Введите градиент C/100 м"
+                     placeholder="Введите градиент, C/100 м"
                      size={'s'}
                      value={data.geo_grad}
                      onChange={({value}) => onInputChange('geo_grad', value) }
                      className={css.input}/>
-          <TextField label="Глубина верхних дыр перфорации"
+          <TextField label="Глубина верхних дыр перфорации, м"
                      type="text"
-                     placeholder="Введите глубину м"
+                     placeholder="Введите глубину, м"
                      size={'s'}
                      value={data.h_res}
                      onChange={({value}) => onInputChange('h_res', value) }
                      className={css.input}/>
-          <TextField label="Пластовое давление"
+          <TextField label="Пластовое давление, атм"
                      type="text"
-                     placeholder="Введите давление атм"
+                     placeholder="Введите давление, атм"
                      size={'s'}
                      value={data.p_res}
                      onChange={({value}) => onInputChange('p_res', value) }
                      className={css.input}/>
-          <TextField label="Коэффициент продуктивности"
+          <TextField label="Коэффициент продуктивности, м3/сут/атм"
                      type="text"
-                     placeholder="Введите коэффициент м3/сут/атм"
+                     placeholder="Введите коэффициент, м3/сут/атм"
                      size={'s'}
                      value={data.pi}
                      onChange={({value}) => onInputChange('pi', value) }

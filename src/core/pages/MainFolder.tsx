@@ -33,7 +33,7 @@ export const MainFolder: React.FC<Props> = ({data}) => {
       height: 700,
     },
     title: {
-      text: 'My chart'
+      text: 'Узловой анализ фонтанной скважины'
     },
     series: [{
       name: 'VLP',
