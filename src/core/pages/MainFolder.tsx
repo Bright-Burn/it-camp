@@ -54,7 +54,6 @@ export const MainFolder: React.FC<Props> = ({data}) => {
   useEffect(() => {
     const series = getSeries(data)
 
-
     setOpt(prev => ({
       ...prev,
       series: series

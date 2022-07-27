@@ -27,13 +27,13 @@ export const getSeries = (data: dataType):  highcharts.SeriesLineOptions[] => {
     }
   }
   data.ipr.p_wf.forEach((p, i) => {
-    vlp.data?.push([data.ipr.q_liq[i], p ])
+    ipr.data?.push([data.ipr.q_liq[i], p ])
   })
   data.vlp.p_wf.forEach((p, i) => {
-    ipr.data?.push([ data.ipr.q_liq[i], p])
+    vlp.data?.push([ data.vlp.q_liq[i], p])
   })
   data.nodal.forEach(p => {
-    production.data?.push([p.p_wf, p.q_liq])
+    production.data?.push([p.q_liq, p.p_wf])
   })
   const seriesData = [vlp, ipr, production ]
 
