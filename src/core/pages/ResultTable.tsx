@@ -14,7 +14,7 @@ export const ResultTable: React.FC<Props> = ({rows}) => {
       align: 'center',
     },
     {
-      title: 'P забой, атм',
+      title: 'Pзаб, атм',
       accessor: 'pressure',
     },
     {
