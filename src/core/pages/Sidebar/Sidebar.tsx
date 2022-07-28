@@ -13,10 +13,28 @@ interface Props {
 }
 
 export const Sidebar: React.FC<Props> = ({setCalculatedData}) => {
-  const [data, setData] = useState<Partial<Record<externalDataType, string> & inclinometry>>({})
+  const [data, setData] = useState<Partial<Record<externalDataType, string> & inclinometry>>({
+    casingD: "0.1",
+    gamma_gas: "0.6",
+    gamma_oil: "0.8",
+    gamma_wat: "1",
+    h_mes: "1000",
+    geo_grad: "3",
+    h_res: "2000",
+    MD: [0, 2000],
+    TVD: [0, 2000],
+    p_res: "250",
+    p_wh: "20",
+    pb: "150",
+    pi: "1",
+    rp: "150",
+    t_res: "90",
+    wct: "10",
+    tubingD: "0.062"
+  })
 
-  const [md, setMD] = useState<string>('')
-  const [tvd, setTVD] = useState<string>('')
+  const [md, setMD] = useState<string>('0, 2000')
+  const [tvd, setTVD] = useState<string>('0, 2000')
   const onInputChange = (prop: externalDataType | "TVD" | "MD", value: string | null ) => {
     setData(setValue(prop, value, data))
   }
